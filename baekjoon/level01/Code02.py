@@ -1,12 +1,2 @@
-a = int(input())
-
-if a >= 90 :
-    print("A")
-elif a >= 80 :
-    print("B")
-elif a >= 70 :
-    print("C")
-elif a >= 60 :
-    print("D")
-else :
-    print("F")
+for i in range(2) :
+    print("강한친구 대한육군")
