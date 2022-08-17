@@ -1,46 +1,33 @@
 # boj 2206
 from collections import deque
-import sys
-input = sys.stdin.readline
 
-n, m = map(int, input().split())
-graph = [list(map(int, input().strip())) for _ in range(n)]
 dx = [1, -1, 0, 0]
 dy = [0, 0, 1, -1]
 
-for i in range(n) :
-    for j in range(m) :
-        graph[i][j] = [graph[i][j], 0, 0]
+n, m = map(int, input().split())
+graph = [list(map(int, input())) for _ in range(n)]
+queue = deque([(0, 0, 0)])
 
 def bfs() :
-    queue = deque([(0, 0, 0)])
-    if (n-1, m-1) == (0, 0) :
-        return 1
+    visit = [[[0]*2 for _ in range(m)] for _ in range(n)] # visit 3차원 배열
+    visit[0][0][0] = 1
+
     while queue :
         x, y, state = queue.popleft()
+        if (x, y) == (n-1, m-1) :
+            return visit[x][y][state]
         for i in range(4) :
             nx = x + dx[i]
             ny = y + dy[i]
             if nx < 0 or ny < 0 or nx >= n or ny >= m :
                 continue
-            if state == 0 :
-                if graph[nx][ny][0] == 0 :
-                    if graph[nx][ny][1] == 0 :
-                        graph[nx][ny][1] += graph[x][y][1] + 1
-                        queue.append((nx, ny, 0))
-                    if (nx, ny) == (n-1, m-1) :
-                        return graph[nx][ny][1] + 1
-                elif graph[nx][ny][0] == 1 :
-                    if graph[nx][ny][2] == 0 :
-                        graph[nx][ny][2] += graph[x][y][1] + 1
-                        queue.append((nx, ny, 1))
-            elif state == 1 :
-                if graph[nx][ny][0] == 0 :
-                    if graph[nx][ny][2] == 0 :
-                        graph[nx][ny][2] += graph[x][y][2] + 1
-                        queue.append((nx, ny, 1))
-                    if (nx, ny) == (n-1, m-1) :
-                        return graph[nx][ny][2] + 1
+            if visit[nx][ny][state] == 0 :   # 벽을 부쉈든 안 부쉈든 아직 해당 장소에 방문 안 함
+                if graph[nx][ny] == 0 : # 해당 장소가 길이라면
+                    visit[nx][ny][state] = visit[x][y][state] + 1
+                    queue.append((nx, ny, state))
+                elif state == 0 and graph[nx][ny] == 1 : # 아직 벽을 안 부쉈고 해당 장소가 벽이라면
+                    visit[nx][ny][1] = visit[x][y][0] + 1
+                    queue.append((nx, ny, 1))
     return -1
 
 print(bfs())
