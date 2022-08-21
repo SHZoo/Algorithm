@@ -34,4 +34,4 @@ for _ in range(t) :
             max_cost = sum
             res_node = i
 
-    print(res_node, max_cost)
+    print(res_node, max_cost) 
