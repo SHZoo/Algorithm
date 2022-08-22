@@ -38,7 +38,3 @@ def dijkstra(start) :
 
 dijkstra(0)
 print(distance[n+1])
-
-                
-
-
