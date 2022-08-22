@@ -1,4 +1,4 @@
-# boj 25430 다이제스타
+# boj 25430 다이제스타 / pypy로 제출할 것
 import heapq
 
 n, m = map(int, input().split())
