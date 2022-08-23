@@ -1,3 +1,4 @@
+# boj 20128 Parity Constraint Shortest Path / pypy로 제출할 것
 import heapq
 
 n, m = map(int, input().split())
