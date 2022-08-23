@@ -1,4 +1,4 @@
-# boj 21276 계보 복원가 호석
+# boj 21276 계보 복원가 호석 / pypy로 제출할 것
 from collections import deque
 
 n = int(input())
