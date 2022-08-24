@@ -45,4 +45,4 @@ for i in range(n) :
             
             graph_copy = copy.deepcopy(graph)
             
-print(-heapq.heappop(hq))
+print(-heapq.heappop(hq))  
