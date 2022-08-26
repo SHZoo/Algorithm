@@ -3,16 +3,16 @@ import heapq
 n, k = map(int, input().split())
 visit = [False] * 100001
 
-def bfs(start) :
+def bfs(start):
     hq = []
     heapq.heappush(hq, (0, start))
-    while hq :
+    while hq:
         cnt, now = heapq.heappop(hq)
-        if now == k :
+        if now == k:
             return cnt
-        if now < 0 or now > 100000 :
+        if now < 0 or now > 100000:
             continue
-        if visit[now] :
+        if visit[now]:
             continue
         visit[now] = True
         heapq.heappush(hq, (cnt+1, now+1))
