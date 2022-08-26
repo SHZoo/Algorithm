@@ -24,7 +24,7 @@ def bfs(start):
 
 res = bfs(s)
 
-if res == None :
+if res == None:
     print("use the stairs")
 else :
     print(res)
