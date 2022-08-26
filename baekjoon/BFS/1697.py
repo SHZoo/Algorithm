@@ -3,17 +3,17 @@ from collections import deque
 n, k = map(int, input().split())
 visit = [False] * 100001
 
-def bfs(start, visit) :
+def bfs(start, visit):
     queue = deque()
     queue.append((n, 0))
 
-    while queue :
+    while queue:
         now, cnt = queue.popleft()
-        if now < 0 or now > 100000 :
+        if now < 0 or now > 100000:
             continue
         if visit[now] == True :
             continue
-        if now == k :
+        if now == k:
             return cnt
         visit[now] = True
         queue.append((now-1, cnt+1))
