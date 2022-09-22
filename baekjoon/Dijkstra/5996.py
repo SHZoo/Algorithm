@@ -1,4 +1,4 @@
-# Heat Wave
+# boj 5996 Heat Wave
 import heapq
 
 INF = (1e10)
