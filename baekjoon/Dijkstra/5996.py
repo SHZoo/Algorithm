@@ -28,4 +28,4 @@ def dijkstra(start):
                 heapq.heappush(hq, (cost, i[0]))
 
 dijkstra(start)
-print(max(distance[end])
+print(distance[end])
