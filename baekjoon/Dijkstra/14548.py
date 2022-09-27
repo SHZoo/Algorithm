@@ -41,4 +41,4 @@ for _ in range(t):
         graph[dict[input_data[1]]].append((dict[input_data[0]], int(input_data[2])))
 
     dijkstra(dict[start])
-    print("{} {} {}".format(start, destination, distance[dict[destination]]))
+    print("{} {} {}".format(start, destination, distance[dict[destination]])) 
